@@ -1,10 +1,36 @@
 <template>
-  <nav>
-    <router-link to="/">Products</router-link> |
-    <router-link to="/profile">Profile</router-link>
-  </nav>
+
+  <NavBar></NavBar>
+
+
   <router-view/>
 </template>
+
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import NavBar from './components/NavBar.vue';
+
+
+export default defineComponent({
+  name: "AppComponent",
+  components: {
+    NavBar,
+  },
+
+  setup() {
+    
+    return {
+      
+    }
+  }
+})
+
+
+</script>
+
+
+
 
 <style>
 #app {
@@ -15,16 +41,5 @@
   color: #2c3e50;
 }
 
-nav {
-  padding: 30px;
-}
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
