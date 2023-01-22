@@ -5,4 +5,17 @@
   </template>
   
 
-  scri
+  <script lang="ts">
+  import { defineComponent } from 'vue'
+  
+  export default defineComponent({
+    props: {
+      id: {
+        type: Number,
+        required: true
+      },
+      userRole: String
+    }
+  })
+  </script>
+  
