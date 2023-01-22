@@ -4,20 +4,35 @@
             <img src="" alt="FakeSkop" width="30" height="24">
         </a>
         <ul>
-            <li>
-                <router-link :to="{name: 'list-products'}">Products</router-link>
+            <li class="display-6">
+                <router-link :to="{name: 'list-products'}">Productos</router-link>
             </li>
-            <li>
-                <router-link :to="{name: 'profile'}">Profile</router-link>
+            <li class="display-6">
+                <router-link :to="{name: 'profile'}">Perfil</router-link>
             </li>
         </ul>
+        <CustomButton>
+            <template v-slot:left-icon>
+                <i class="bi bi-box-arrow-right"></i>
+            </template>
+            <template v-slot:right-icon>
+                <p>Cerrar sesión</p>
+            </template>
+        </CustomButton>
     </nav>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import CustomButton from './CustomButton.vue';
 
 export default defineComponent({
+    name: 'NavBar',
+    components: {
+        CustomButton,
+
+    },
+
     setup() {
         return {}
     },
@@ -28,9 +43,11 @@ export default defineComponent({
 <style scoped>
     .navbar {
         width: 100%;
-        /* background-color: coral; */
         padding: 0;
         margin: 0 0 20px 0;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
     }
 
     ul {
@@ -52,6 +69,7 @@ export default defineComponent({
     a {
         color: black;
         text-decoration: none;
+        font-size: 1.5rem;
 
     }
 
