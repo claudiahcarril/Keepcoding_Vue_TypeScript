@@ -1,18 +1,19 @@
 <template>
-  <div class="product-list">
+  <div>
     <div v-if="isLoading">
       Cargando...
     </div>
-    <div v-else>
-      <div v-for="product in products" :key="product.id">
+    <div class="product-list" v-else>
+      <ProductItem v-for="product in products" :key="product.id" :product="product">
         {{ product.title }}
-      </div>
+      </ProductItem>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 // import SearchBar from '@/components/SearchBar.vue';
+import ProductItem from '@/components/ProductItem.vue';
 import useProducts from '@/composable/useProducts';
 import { defineComponent } from 'vue';
 
@@ -20,6 +21,8 @@ export default defineComponent({
   name: 'SearchBar',
   components: { 
     // SearchBar, 
+    ProductItem,
+
   },
   setup() {
     const {products, isLoading, fetchProducts} = useProducts()
@@ -33,3 +36,17 @@ export default defineComponent({
   },
 });
 </script>
+
+
+<style scoped>
+
+.product-list {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    gap: 1rem 1rem
+}
+
+
+
+</style>
