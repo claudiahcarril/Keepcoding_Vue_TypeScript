@@ -9,9 +9,7 @@
                 <p>Buscar</p>
             </template>
         </CustomButton>
-        
-        
-        
+    
     </form>
 </template>
 
@@ -31,8 +29,7 @@ export default defineComponent({
 
 <style scoped>
 .d-flex {
-    max-width: 75%;
-    justify-content: center;
+    margin: 20px 50px 20px 50px;
 }
 
 .bi-search {

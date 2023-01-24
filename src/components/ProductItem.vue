@@ -6,7 +6,13 @@
         </div>
         <div class="card-text product-info">
             <div class="product-description">{{ product.description }}</div>
-            <div class="product-price">{{ product.price }}</div>
+            <div class="product-price">{{ product.price }} €</div>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-sm btn-primary" 
+            @click="$emit('addCart', product)">Añadir al Carrito</button>
+            <button class="btn btn-sm btn-success"
+            @click="$emit('goDetail', product)">Más información</button>
         </div>
     </div>
 </template>
@@ -31,8 +37,24 @@ export default defineComponent({
 <style scoped>
 .product-item {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 300px;
-
+    height: 450px;
 }
 
+.product-img > img {
+    width: 100%;
+}
+
+.product-description {
+    font-size: 12px;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 </style>
