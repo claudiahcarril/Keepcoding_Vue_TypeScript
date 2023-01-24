@@ -1,6 +1,7 @@
 <template>
 
   <NavBar></NavBar>
+
   <SearchBar></SearchBar>
 
   <router-view/>

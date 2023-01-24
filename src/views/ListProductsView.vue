@@ -1,5 +1,4 @@
 <template>
-  <!-- <SearchBar></SearchBar> -->
   <div>
     <div v-if="isLoading">
       Cargando lista de productos...
@@ -7,14 +6,12 @@
     <div class="product-list" v-else>
       <ProductItem v-for="product in products" :key="product.id" :product="product"
         @goDetail="goDetail">
-        <!-- {{ product.title }} -->
       </ProductItem>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-// import SearchBar from '@/components/SearchBar.vue';
 import ProductItem from '@/components/ProductItem.vue';
 import useProducts from '@/composable/useProducts';
 import { Product } from '@/models/product';
@@ -24,7 +21,6 @@ import { useRouter } from 'vue-router';
 export default defineComponent({
   name: 'SearchBar',
   components: { 
-    // SearchBar, 
     ProductItem,
 
   },
