@@ -5,7 +5,7 @@
             <template v-slot:left-icon>
                 <i class="bi bi-search"></i>
             </template>
-            <template v-slot:right-icon>
+            <template v-slot:right-text>
                 <p>Buscar</p>
             </template>
         </CustomButton>

@@ -1,3 +1,4 @@
+import { Product } from "@/models/product"
 import { computed } from "vue"
 import { useStore } from "vuex"
 
@@ -7,9 +8,11 @@ const useProducts = () => {
         // GETTERS
         products: computed(() => store.getters['products/getProducts']),
         isLoading: computed(() => store.getters['products/getIsLoading']),
+        product: computed(() => store.getters['products/getProduct']),
 
         // ACTIONS
-        fetchProducts: () => store.dispatch('products/fetchProducts')
+        fetchProducts: () => store.dispatch('products/fetchProducts'),
+        fetchProductById: (productId: number) : Promise<Product> => store.dispatch('products/fetchProductById', productId)
     }
 }
 

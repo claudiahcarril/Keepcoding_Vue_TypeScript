@@ -15,7 +15,7 @@
             <template v-slot:left-icon>
                 <i class="bi bi-box-arrow-right"></i>
             </template>
-            <template v-slot:right-icon>
+            <template v-slot:right-text>
                 <p>Cerrar sesión</p>
             </template>
         </CustomButton>

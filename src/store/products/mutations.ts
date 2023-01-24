@@ -9,6 +9,10 @@ const mutations: MutationTree<IProductsState> = {
 
     setIsLoading(state: IProductsState, value: boolean) {
         state.isLoading = value
+    },
+
+    setSelectedProduct(state, product: Product) {
+        state.selectedProduct = product
     }
 }
 
