@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar bg-body-tertiary">
         <a class="navbar-brand" href="#">
-            <img src="" alt="FakeSkop" width="30" height="24">
+            <img src="../assets/fakeshoplogo.png" alt="FakeShop" width="130" height="70">
         </a>
         <ul>
             <li class="display-6">
@@ -74,9 +74,14 @@ export default defineComponent({
 
     }
 
-    a:focus {
+    .router-link-active, 
+    a:active {
         color: #8ed4b5;
     }
 
+
+    .navbar-brand > img {
+        margin-left: 20px;
+    }
 
 </style>

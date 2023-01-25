@@ -57,7 +57,8 @@ export default defineComponent({
   max-width: 968px;
   align-self: center;
   margin: 20px auto;
-  padding: 10px
+  padding: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .product-title {

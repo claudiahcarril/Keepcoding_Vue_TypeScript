@@ -42,7 +42,7 @@ export default defineComponent({
   align-self: center;
   margin: 20px auto;
   margin-top: 100px;
-  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 .form-title-section {

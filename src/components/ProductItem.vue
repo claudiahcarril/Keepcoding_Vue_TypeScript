@@ -41,6 +41,7 @@ export default defineComponent({
     justify-content: center;
     width: 300px;
     height: 450px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .product-img > img {

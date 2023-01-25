@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar bg-body-tertiary">
-        <a class="navbar-brand" href="#">
-            <img src="" alt="FakeSkop" width="30" height="24">
+        <a class="navbar-brand">
+            <img src="../assets/fakeshoplogo.png" alt="FakeShop" width="130" height="70">
         </a>
     </nav>
 </template>
