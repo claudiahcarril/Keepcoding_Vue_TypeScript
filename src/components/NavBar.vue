@@ -16,7 +16,7 @@
                 <i class="bi bi-box-arrow-right"></i>
             </template>
             <template v-slot:right-text>
-                <p>Cerrar sesión</p>
+                <p>Logout</p>
             </template>
         </CustomButton>
     </nav>
@@ -61,16 +61,21 @@ export default defineComponent({
     }
     
     li {
-        font-weight: bold;
+        font-weight: 700;
         text-decoration: none;
         padding: 5px;
+        padding-left: 20px;
     }
     
     a {
-        color: black;
+        color: #35495e;
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
 
+    }
+
+    a:focus {
+        color: #8ed4b5;
     }
 
 

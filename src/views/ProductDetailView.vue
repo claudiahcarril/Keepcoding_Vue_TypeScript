@@ -1,4 +1,5 @@
 <template>
+  <NavBar />
   <div v-if="product" class="product" >
     <div class="product-title">
       <h1>{{ product.title }}</h1>
@@ -24,8 +25,13 @@
 <script lang="ts">
 import useProducts from '@/composable/useProducts'
 import { defineComponent } from 'vue'
+import NavBar from '@/components/NavBar.vue'
   
 export default defineComponent({
+  components: {
+    NavBar,
+  },
+
   props: {
     id: {
       type: Number,
