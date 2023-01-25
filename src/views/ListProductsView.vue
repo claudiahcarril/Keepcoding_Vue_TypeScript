@@ -1,4 +1,5 @@
 <template>
+  <SearchBar></SearchBar>
   <div>
     <div v-if="isLoading">
       Cargando lista de productos...
@@ -17,11 +18,13 @@ import useProducts from '@/composable/useProducts';
 import { Product } from '@/models/product';
 import { defineComponent } from 'vue';
 import { useRouter } from 'vue-router';
+import SearchBar from '@/components/SearchBar.vue';
 
 export default defineComponent({
-  name: 'SearchBar',
+  name: 'ListProduct',
   components: { 
     ProductItem,
+    SearchBar,
 
   },
   setup() {

@@ -9,16 +9,16 @@ const actions: ActionTree<IProductsState, IState> = {
     async fetchProducts({ commit }) {
         commit('setIsLoading', true)
         const {data} = await fakeShopApi.get<unknown, AxiosResponse<Product[]>>(`/products`)
-        commit('setIsLoading', false)
         commit('setProducts', data)
+        commit('setIsLoading', false)
     },
     async fetchProductById ({ commit }, productId: number) {
         commit('setIsLoading', true)
         const {data} = await fakeShopApi.get<unknown, AxiosResponse<Product>>(
             `/products/${productId}`
         )
-        commit('setIsLoading', false)
         commit('setSelectedProduct', data)
+        commit('setIsLoading', false)
 
     }
 }
