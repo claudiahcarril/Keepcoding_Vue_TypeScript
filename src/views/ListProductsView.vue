@@ -32,7 +32,6 @@ export default defineComponent({
   },
   setup() {
     const {products, isLoading, fetchProducts} = useProducts()
-
     const router = useRouter()
     fetchProducts()
 

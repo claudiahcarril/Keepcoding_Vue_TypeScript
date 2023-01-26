@@ -1,5 +1,5 @@
 import { GetterTree } from "vuex";
-import { IState } from "..";
+import { IState } from ".";
 import { IProductsState } from "./state";
 
 const getters: GetterTree<IProductsState, IState> = {

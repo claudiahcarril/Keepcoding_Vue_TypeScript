@@ -1,6 +1,6 @@
 <template>
   <NavBarLogin />
-  <div class="form">
+  <form @submit.prevent="sendForm" class="form">
     <div class="form-title-section">
       <h1 class="form-title">Acceso a la tienda</h1>
       <hr>
@@ -8,29 +8,46 @@
     <div class="row">
       <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
-        <input type="email" class="form-control" id="staticEmail" placeholder="Ingresa tu email" required>
+        <input v-model="email" type="email" class="form-control" id="staticEmail" placeholder="Ingresa tu email" required>
       </div>
     </div>
     <div class="row">
       <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
       <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Ingresa tu contraseña" required>
+        <input v-model="password" type="password" class="form-control" id="inputPassword" placeholder="Ingresa tu contraseña" required>
       </div>
     </div>
     <button class="btn btn-submit" type="submit">Acceder</button>
-  </div>
+  </form>
 </template>
 
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import NavBarLogin from '@/components/NavBarLogin.vue';
+import useLogin from '@/composable/useLogin'
 
 export default defineComponent({
   components: {
     NavBarLogin,
   },
+  setup () {
+    const { login } = useLogin()
+    const email = ref<string>('');
+    const password = ref<string>('');
 
+    return {
+      email, 
+      password,
+      sendForm() {
+        const credentials = { email: email.value, password: password.value }
+        login(credentials)
+        
+        console.log('llamar action login(credentials)', credentials)
+      }
+    }
+
+  }
 })
 </script>
 

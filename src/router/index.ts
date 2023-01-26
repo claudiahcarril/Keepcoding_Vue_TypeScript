@@ -27,8 +27,12 @@ const routes: Array<RouteRecordRaw> = [
       const id = Number(route.params.id)
       const userRole = localStorage.getItem('userRole')
       return isNaN(id) ? {id: null, userRole} : { id, userRole }
-    }
+    },
   },
+  {
+    path: "/:pathMatch(.*)",
+    component: import(/*webpackChunkName: notFound*/ "../views/NotFound.vue"),
+  }
 ]
 
 const router = createRouter({

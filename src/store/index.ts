@@ -1,10 +1,11 @@
-import { Product } from '@/models/product'
+import { User } from '@/models/user';
 import { createStore } from 'vuex'
+// import loginModule from './login';
 import productsModule from './products'
 
-
-export interface IState {
-  authProduct: Product | null,
+export interface ProfileState {
+  user?: User;
+  error: boolean;
 }
 
 
@@ -20,5 +21,6 @@ export default createStore({
   },
   modules: {
     products: productsModule,
+    // login: loginModule,
   }
 })

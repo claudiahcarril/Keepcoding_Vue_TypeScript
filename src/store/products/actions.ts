@@ -2,7 +2,7 @@ import fakeShopApi from "@/api/fakeShopApi";
 import { Product } from "@/models/product";
 import { AxiosResponse } from "axios";
 import { ActionTree } from "vuex";
-import { IState } from "..";
+import { IState } from ".";
 import { IProductsState } from "./state";
 
 const actions: ActionTree<IProductsState, IState> = {
