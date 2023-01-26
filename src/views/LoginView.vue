@@ -6,17 +6,18 @@
       <hr>
     </div>
     <div class="row">
-      <label for="staticEmail" class="col-sm-2 col-form-label">Usuario</label>
+      <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="staticEmail" placeholder="email@example.com">
+        <input type="email" class="form-control" id="staticEmail" placeholder="Ingresa tu email" required>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword">
+    <div class="row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Ingresa tu contraseña" required>
+      </div>
     </div>
-  </div>
+    <button class="btn btn-submit" type="submit">Acceder</button>
   </div>
 </template>
 
@@ -77,5 +78,18 @@ export default defineComponent({
   margin: 30px 20px 40px 20px;
 }
 
+
+.btn-submit {
+    background-color: #8ed4b5;
+    border: none;
+    color: #35495e;
+    padding: 15px 25px 15px 25px;
+    margin-bottom: 25px;
+}
+
+.btn-submit:hover {
+  background-color: #35495e;
+  color: #8ed4b5;
+}
 
 </style>
