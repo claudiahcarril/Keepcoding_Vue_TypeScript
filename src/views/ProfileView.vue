@@ -3,6 +3,7 @@
   <div class="profile">
     <div class="profile-title-section">
       <h1 class="profile-title">Nombre de usuario</h1>
+      <h2>{{ user }}</h2>
       <hr>
     </div>
     <div class="row">
@@ -22,11 +23,21 @@
   <script lang="ts">
   import { defineComponent } from 'vue'
   import NavBar from '@/components/NavBar.vue';
+import useLogin from '@/composable/useLogin';
   
   export default defineComponent({
     components: {
       NavBar,
     },
+
+    setup() {
+      const { user, login } = useLogin()
+
+      return {
+        user,
+        login,
+      }
+    }
 
   })
   </script>
