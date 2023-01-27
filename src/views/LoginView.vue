@@ -26,6 +26,7 @@
 import { defineComponent, ref } from 'vue'
 import NavBarLogin from '@/components/NavBarLogin.vue';
 import useLogin from '@/composable/useLogin'
+import router from '@/router';
 
 export default defineComponent({
   components: {
@@ -39,11 +40,10 @@ export default defineComponent({
     return {
       email, 
       password,
-      sendForm() {
+      async sendForm() {
         const credentials = { email: email.value, password: password.value }
-        login(credentials)
-        
-        console.log('llamar action login(credentials)', credentials)
+        await login(credentials)
+        router.push({name: 'list-products'})
       }
     }
 

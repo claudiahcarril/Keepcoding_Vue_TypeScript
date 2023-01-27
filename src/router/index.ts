@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import haveRoleGuard from './role-guards'
 // import haveRoleGuard from './role-guards'
 
 
@@ -6,7 +7,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'list-products',
-    // beforeEnter: [haveRoleGuard],
+    beforeEnter: [haveRoleGuard],
     component: () => import(/* webpackChunkName: "list-products" */ '../views/ListProductsView.vue')
   },
   {

@@ -6,15 +6,15 @@ import actions from "./actions";
 import { Product } from "@/models/product";
 
 export interface IState {
-    authProduct: Product | null,
-  }
+  authProduct: Product | null,
+}
 
 const productsModule: Module<IProductsState, IState> = {
-    namespaced: true,
-    state,
-    getters,
-    mutations,
-    actions
+  namespaced: true,
+  state,
+  getters,
+  mutations,
+  actions
 }
 
 export default productsModule

@@ -1,9 +1,10 @@
 import { RouteLocation } from "vue-router";
 
+
 const haveRoleGuard = (to: RouteLocation, from: RouteLocation, next: any) => {
     const jwt = localStorage.getItem('token')
     if (jwt) {
-        next( { name: "list-products"} )
+        next()
     } else {
         next({ name: "login"})
     }
