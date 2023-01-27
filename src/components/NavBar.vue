@@ -11,7 +11,8 @@
                 <router-link :to="{name: 'profile'}">Perfil</router-link>
             </li>
         </ul>
-        <CustomButton>
+        <!-- <CustomButton> -->
+        <CustomButton @click="deleteToken">
             <template v-slot:left-icon>
                 <i class="bi bi-box-arrow-right"></i>
             </template>
@@ -25,16 +26,23 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import CustomButton from './CustomButton.vue';
+import useLogin from '@/composable/useLogin'
+// import router from '@/router';
 
 export default defineComponent({
     name: 'NavBar',
     components: {
         CustomButton,
-
     },
 
     setup() {
-        return {}
+        const { deleteToken } = useLogin()
+
+        return {
+            tataatat: console.log(deleteToken),
+            deleteToken,
+            // router: router.push({name: 'login'})
+        }
     },
 })
 </script>

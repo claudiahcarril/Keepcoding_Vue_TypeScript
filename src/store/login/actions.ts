@@ -11,6 +11,12 @@ const actions: ActionTree<IUserState, ProfileState> = {
         commit('setToken', data.access_token)
         const response = await fakeShopApi.get('/auth/profile')
         commit('setUser', response.data)
+    },
+    async deleteToken( {commit}) {
+        localStorage.getItem('token')
+        const removeToken = 'hola'
+        localStorage.removeItem('token')
+        commit('removeToken', removeToken)
     }
 }
 

@@ -9,6 +9,9 @@ const mutations: MutationTree<IUserState> = {
     setToken(state: IUserState, token: string) {
         state.token = token
     },
+    removeToken(state: IUserState, token: string) {
+        state.token = token
+    }
 }
 
 export default mutations

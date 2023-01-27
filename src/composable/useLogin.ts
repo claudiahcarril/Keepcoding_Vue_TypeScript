@@ -1,4 +1,5 @@
 import { Credentials } from "@/models/user"
+import { IUserState } from "@/store/login/state"
 import { computed } from "vue"
 import { useStore } from "vuex"
 
@@ -9,8 +10,12 @@ const useLogin = () => {
         user: computed(() => store.getters['login/getUser']),
         token: computed(() => store.getters['login/getToken']),
 
+        // MUTATIONS
+        removeToken: (token: IUserState) => store.commit('login/removeToken', token),
+
         // ACTIONS
         login: (credentials: Credentials) => store.dispatch('login/login', credentials),
+        deleteToken: () => store.dispatch('login/deleteToken')
     }
 }
 

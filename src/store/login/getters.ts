@@ -1,5 +1,5 @@
 import { GetterTree } from "vuex"
-import { ProfileState } from ".."
+import { ProfileState } from "."
 import { IUserState } from "./state"
 
 const getters: GetterTree<IUserState, ProfileState> = {
