@@ -6,6 +6,12 @@ export interface IProductsState {
     selectedProduct: Product | null
 }
 
+
+export interface ProductParams {
+    page: number
+    title: string
+}
+
 function state(): IProductsState {
     return {
         products: [],

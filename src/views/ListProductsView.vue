@@ -1,6 +1,6 @@
 <template>
   <NavBar />
-  <SearchBar />
+  <SearchBar @filter="filterProducts" />
   <div>
     <div v-if="isLoading">
       Cargando lista de productos...
@@ -33,12 +33,23 @@ export default defineComponent({
   setup() {
     const {products, isLoading, fetchProducts} = useProducts()
     const router = useRouter()
-    fetchProducts()
+    let title = ''
+    let page = 1
+
+    fetchProducts({ page, title})
 
     return {
       products,
       isLoading,
-      goDetail: (product: Product) => router.push({name: 'detail-product', params: {id: product.id}})
+      goDetail: (product: Product) => router.push({name: 'detail-product', params: {id: product.id}}),
+      filterProducts (filter: string) {
+        title = filter
+        fetchProducts({ page, title})
+      },
+      setPage (page2: number) {
+        page = page2
+        fetchProducts({ page, title})
+      }
     }      
   },
 });

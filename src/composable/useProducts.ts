@@ -1,4 +1,5 @@
 import { Product } from "@/models/product"
+import { ProductParams } from "@/store/products/state"
 import { computed } from "vue"
 import { useStore } from "vuex"
 
@@ -11,7 +12,7 @@ const useProducts = () => {
         product: computed(() => store.getters['products/getProduct']),
 
         // ACTIONS
-        fetchProducts: () => store.dispatch('products/fetchProducts'),
+        fetchProducts: (params: ProductParams) => store.dispatch('products/fetchProducts', params),
         fetchProductById: (productId: number) : Promise<Product> => store.dispatch('products/fetchProductById', productId)
     }
 }

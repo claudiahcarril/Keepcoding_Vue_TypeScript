@@ -1,5 +1,5 @@
 <template>
-    <button @click="$emit('clicked')" class="btn btn-outline-success">
+    <button type="submit" @click="$emit('clicked')" class="btn btn-outline-success">
         <slot name="left-icon"></slot>
         <slot name="right-text"></slot>
     </button>

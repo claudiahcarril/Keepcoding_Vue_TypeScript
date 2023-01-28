@@ -1,6 +1,6 @@
 <template>
-    <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
+    <form @submit.prevent="$emit('filter', filter)" class="d-flex" role="search">
+        <input v-model="filter" class="form-control me-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
         <CustomButton>
             <template v-slot:left-icon>
                 <i class="bi bi-search"></i>
@@ -15,13 +15,21 @@
 
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import CustomButton from './CustomButton.vue';
 
 export default defineComponent({
     name: 'SearchBar',
     components: {
         CustomButton,
+    },
+
+    setup() {
+        const filter = ref<string>('');
+
+        return {
+            filter,
+        }
     }
 })
 </script>
