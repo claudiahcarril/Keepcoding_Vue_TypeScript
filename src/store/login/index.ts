@@ -4,6 +4,7 @@ import mutations from "./mutations";
 import actions from "./actions";
 import state, { IUserState } from "./state";
 import { User } from "@/models/user";
+import { IState } from "../products";
 
 
 export interface ProfileState {
@@ -11,7 +12,7 @@ export interface ProfileState {
   error: boolean;
 }
 
-const loginModule: Module<IUserState, ProfileState> = {
+const loginModule: Module<IUserState, IState> = {
   namespaced: true,
   state,
   getters,

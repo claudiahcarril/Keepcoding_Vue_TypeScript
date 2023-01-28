@@ -1,10 +1,11 @@
 import fakeShopApi from "@/api/fakeShopApi"
 import { Credentials } from "@/models/user"
 import { ActionTree } from "vuex"
-import { ProfileState } from "."
+// import { ProfileState } from "."
+import { IState } from "../products"
 import { IUserState } from "./state"
 
-const actions: ActionTree<IUserState, ProfileState> = {
+const actions: ActionTree<IUserState, IState> = {
     async login ({ commit }, credentials: Credentials) {
         const {data} = await fakeShopApi.post('/auth/login', { ...credentials })
         localStorage.setItem('token', data.access_token)

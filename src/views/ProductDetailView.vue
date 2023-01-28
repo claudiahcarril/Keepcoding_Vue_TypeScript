@@ -17,6 +17,8 @@
       </div>
       {{ product.price }}€
     </div>
+    <button class="btn btn-sm btn-primary" 
+      @click="addProductToCart(product)">Añadir al Carrito</button>
   </div>
   <div v-else>Cargando producto...</div>
 </template>
@@ -26,6 +28,7 @@
 import useProducts from '@/composable/useProducts'
 import { defineComponent } from 'vue'
 import NavBar from '@/components/NavBar.vue'
+import { useCart } from '@/composable/useCart'
   
 export default defineComponent({
   components: {
@@ -40,11 +43,13 @@ export default defineComponent({
       userRole: String
   },
   setup(props) {
-  const { product, fetchProductById } = useProducts()
-  fetchProductById(props.id)
+    const { addProductToCart } = useCart()
+    const { product, fetchProductById } = useProducts()
+    fetchProductById(props.id)
 
    return {
       product, 
+      addProductToCart
     }
   },
 })

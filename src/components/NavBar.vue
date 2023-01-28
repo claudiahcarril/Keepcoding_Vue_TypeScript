@@ -11,8 +11,9 @@
                 <router-link :to="{name: 'profile'}">Perfil</router-link>
             </li>
         </ul>
+        <button @click="toggleCart" class="btn btn-secondary">Carrito</button>
         <!-- <CustomButton> -->
-        <CustomButton @click="deleteToken">
+        <CustomButton @click="removeToken">
             <template v-slot:left-icon>
                 <i class="bi bi-box-arrow-right"></i>
             </template>
@@ -27,7 +28,8 @@
 import { defineComponent } from 'vue'
 import CustomButton from './CustomButton.vue';
 import useLogin from '@/composable/useLogin'
-// import router from '@/router';
+import { useCart } from '@/composable/useCart';
+import router from '@/router';
 
 export default defineComponent({
     name: 'NavBar',
@@ -36,12 +38,16 @@ export default defineComponent({
     },
 
     setup() {
+        const { toggleCart } = useCart()
         const { deleteToken } = useLogin()
 
         return {
-            tataatat: console.log(deleteToken),
-            deleteToken,
-            // router: router.push({name: 'login'})
+            toggleCart,
+            removeToken() {
+                console.log(deleteToken),
+                deleteToken,
+                router.push({name: 'login'})
+            }
         }
     },
 })

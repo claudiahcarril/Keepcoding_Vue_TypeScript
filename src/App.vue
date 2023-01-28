@@ -1,25 +1,26 @@
 <template>
-
-  <!-- <NavBar></NavBar> -->
-
+  <CartList v-show="isCartOpen"></CartList>
+  
   <router-view/>
 </template>
 
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-// import NavBar from './components/NavBar.vue';
+import { useCart } from './composable/useCart';
+import CartList from './components/CartList.vue';
 
 export default defineComponent({
   name: "AppComponent",
   components: {
-    // NavBar,
+    CartList,
   },
 
   setup() {
+    const {isCartOpen} = useCart()
     
     return {
-      
+      isCartOpen
     }
   }
 })

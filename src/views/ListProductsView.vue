@@ -7,10 +7,10 @@
     </div>
     <div class="product-list" v-else>
       <ProductItem v-for="product in products" :key="product.id" :product="product"
-        @goDetail="goDetail">
-      </ProductItem>
-    </div>
+      @goDetail="goDetail">
+    </ProductItem>
   </div>
+</div>
 </template>
 
 <script lang="ts">

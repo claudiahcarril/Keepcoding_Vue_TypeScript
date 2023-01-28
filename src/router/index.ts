@@ -18,11 +18,13 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/profile',
     name: 'profile',
+    beforeEnter: [haveRoleGuard],
     component: () => import(/* webpackChunkName: "profile" */ '../views/ProfileView.vue')
   },
   {
     path: '/detail-product/:id',
     name: 'detail-product',
+    beforeEnter: [haveRoleGuard],
     component: () => import(/* webpackChunkName: "detail-product" */ '../views/ProductDetailView.vue'),
     props: (route) => {
       const id = Number(route.params.id)
@@ -32,6 +34,7 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/:pathMatch(.*)",
+    beforeEnter: [haveRoleGuard],
     component: import(/*webpackChunkName: notFound*/ "../views/NotFound.vue"),
   }
 ]

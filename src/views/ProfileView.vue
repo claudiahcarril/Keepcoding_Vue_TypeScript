@@ -3,7 +3,7 @@
   <div class="profile">
     <div class="profile-title-section">
       <h1 class="profile-title">Nombre de usuario</h1>
-      <h2>{{ user }}</h2>
+      <h2>{{ user?.email }}</h2>
       <hr>
     </div>
     <div class="row">
@@ -20,10 +20,10 @@
 </template>
   
 
-  <script lang="ts">
+<script lang="ts">
   import { defineComponent } from 'vue'
   import NavBar from '@/components/NavBar.vue';
-import useLogin from '@/composable/useLogin';
+  import useLogin from '@/composable/useLogin';
   
   export default defineComponent({
     components: {

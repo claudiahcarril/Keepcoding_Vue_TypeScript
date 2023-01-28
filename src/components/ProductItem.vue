@@ -10,7 +10,7 @@
         </div>
         <div class="buttons">
             <button class="btn btn-sm btn-primary" 
-            @click="$emit('addCart', product)">Añadir al Carrito</button>
+            @click="addProductToCart(product)">Añadir al Carrito</button>
             <button class="btn btn-sm btn-success"
             @click="$emit('goDetail', product)">Más información</button>
         </div>
@@ -20,6 +20,7 @@
 
 
 <script lang="ts">
+import { useCart } from '@/composable/useCart';
 import { Product } from '@/models/product'
 import { defineComponent, PropType } from 'vue'
 
@@ -28,6 +29,14 @@ export default defineComponent({
         product: {
             type: Object as PropType<Product>,
                 required: true
+        }
+    },
+
+    setup() {
+        const { addProductToCart } = useCart()
+
+        return {
+            addProductToCart
         }
     }
 })
