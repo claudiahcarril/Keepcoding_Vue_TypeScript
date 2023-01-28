@@ -11,7 +11,7 @@
                 <router-link :to="{name: 'profile'}">Perfil</router-link>
             </li>
         </ul>
-        <button @click="toggleCart" class="btn btn-secondary">Carrito</button>
+        <button @click="toggleCart" class="btn btn-secondary btn-cart">Carrito</button>
         <!-- <CustomButton> -->
         <CustomButton @click="removeToken">
             <template v-slot:left-icon>
@@ -97,5 +97,12 @@ export default defineComponent({
     .navbar-brand > img {
         margin-left: 20px;
     }
+
+.btn-cart {
+    background-color: #35495e;
+    color: #8ed4b5;
+    margin-right: 20px;
+} 
+
 
 </style>

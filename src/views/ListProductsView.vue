@@ -53,7 +53,7 @@ export default defineComponent({
     justify-content: center;
     align-items: center;
     width: 100%;
-    gap: 1rem 1rem
+    gap: 1.5rem 1.5rem
 }
 
 

@@ -11,15 +11,14 @@
       </div>
       <div class="product-description">{{ product.description }}</div>
     </div>
-    <div class="product-price">
-      <div>
-        <i class="bi bi-tag-fill"></i>
+    <div class="product-add">
+      <div class="product-price">
+        {{ product.price }}€
       </div>
-      {{ product.price }}€
+      <button class="btn btn-sm btn-primary btn-add" 
+        @click="addProductToCart(product)">Añadir al Carrito</button>
     </div>
-    <button class="btn btn-sm btn-primary" 
-      @click="addProductToCart(product)">Añadir al Carrito</button>
-  </div>
+    </div>
   <div v-else>Cargando producto...</div>
 </template>
   
@@ -66,8 +65,11 @@ export default defineComponent({
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-.product-title {
+.product-title > h1  {
   padding: 0;
+  color: #35495e;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .product-title > hr {
@@ -92,6 +94,44 @@ export default defineComponent({
 
 .product-description {
   text-align: justify;
+  margin: 0 20px 0 20px;
 }
+
+
+.btn-add {
+  background-color: #8ed4b5;
+  color: #35495e;
+  border: #8ed4b5;
+  font-weight: 700;
+  margin-left:15px
+}
+
+.btn-add:hover, .btn-add:active {
+  background-color: #35495e;
+  color: #8ed4b5;
+}
+
+
+.product-add {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: end;
+  
+}
+
+.product-price {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  border: none;
+  height: 50px;
+  max-width: 150px;
+  padding: 10px 15px 10px 15px ;
+  font-size: xx-large;
+  font-weight: 700;
+}
+
 
 </style>
