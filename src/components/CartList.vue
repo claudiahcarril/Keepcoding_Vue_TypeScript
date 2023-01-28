@@ -7,7 +7,7 @@
             <ul>
                 <li v-for="item in cartItems" :key="item.id">
                     <div class="element-name">
-                        {{ item }}
+                        {{ item.title }}
                     </div>
                     <div class="actions">
                         <button @click="removeProductFromCart(item)" class="btn btn-danger">Borrar</button>

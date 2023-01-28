@@ -19,16 +19,20 @@ export default defineComponent({
 .btn-outline-success {
     display: flex;
     flex-flow: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
     background-color: #8ed4b5;
     border: none;
-    height: 30px;
-    max-width: 150px;
+    height: 40px;
+    min-width: 120px;
     padding: 10px 15px 10px 15px ;
 }
 
+/* .btn-outline-success:hover, .btn-outline-success:active  {
+    background-color: #35495e;
+    color: #8ed4b5;
+} */
 
 
 </style>

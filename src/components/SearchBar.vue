@@ -39,6 +39,7 @@ export default defineComponent({
 .btn-outline-success > p {
     margin: 0;
     font-weight: 700;
+    color: #35495e;
 }
 
 

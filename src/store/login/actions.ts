@@ -17,9 +17,8 @@ const actions: ActionTree<IUserState, IState> = {
     
     async deleteToken( {commit}) {
         localStorage.getItem('token')
-        const removeToken = 'hola'
         localStorage.removeItem('token')
-        commit('removeToken', removeToken)
+        commit('removeToken')
     }
 }
 

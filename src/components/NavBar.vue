@@ -45,7 +45,9 @@ export default defineComponent({
             toggleCart,
             removeToken() {
                 console.log(deleteToken),
+                console.log(localStorage.getItem('token')),
                 deleteToken,
+                console.log(localStorage.getItem('token'))
                 router.push({name: 'login'})
             }
         }
@@ -102,7 +104,27 @@ export default defineComponent({
     background-color: #35495e;
     color: #8ed4b5;
     margin-right: 20px;
+    height: 40px;
 } 
 
+.btn-cart:hover {
+    background-color: #8ed4b5;
+    color: #35495e;
+    border: #8ed4b5;
+}
+
+.btn-outline-success > p {
+    margin: 0;
+    font-weight: 700;
+    color: #35495e;
+}
+
+.bi-box-arrow-right {
+    color: #35495e;
+}
+
+.btn-outline-success {
+    margin-right: 50px;
+}
 
 </style>
