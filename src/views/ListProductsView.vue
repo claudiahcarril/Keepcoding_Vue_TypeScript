@@ -8,19 +8,21 @@
     <div class="product-list" v-else>
       <ProductItem v-for="product in products" :key="product.id" :product="product"
       @goDetail="goDetail">
-    </ProductItem>
+      </ProductItem>
+    </div>
   </div>
-</div>
+  <PaginationComp :page="page" @prev="setPage(page - 1)" @next="setPage(page + 1)" />
 </template>
 
 <script lang="ts">
 import ProductItem from '@/components/ProductItem.vue';
 import useProducts from '@/composable/useProducts';
 import { Product } from '@/models/product';
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { useRouter } from 'vue-router';
 import SearchBar from '@/components/SearchBar.vue';
 import NavBar from '@/components/NavBar.vue';
+import PaginationComp from '@/components/PaginationComp.vue';
 
 export default defineComponent({
   name: 'ListProduct',
@@ -28,27 +30,31 @@ export default defineComponent({
     ProductItem,
     SearchBar,
     NavBar,
+    PaginationComp,
 
   },
   setup() {
     const {products, isLoading, fetchProducts} = useProducts()
     const router = useRouter()
     let title = ''
-    let page = 1
+    const page = ref<number>(1);
 
-    fetchProducts({ page, title})
+    fetchProducts({ page: page.value, title})
 
     return {
+      page,
       products,
       isLoading,
       goDetail: (product: Product) => router.push({name: 'detail-product', params: {id: product.id}}),
       filterProducts (filter: string) {
+        page.value = 1
         title = filter
-        fetchProducts({ page, title})
+        fetchProducts({ page: page.value, title})
       },
       setPage (page2: number) {
-        page = page2
-        fetchProducts({ page, title})
+        console.log(page2)
+        page.value = page2
+        fetchProducts({ page: page2, title})
       }
     }      
   },

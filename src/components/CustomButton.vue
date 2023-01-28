@@ -29,10 +29,5 @@ export default defineComponent({
     padding: 10px 15px 10px 15px ;
 }
 
-/* .btn-outline-success:hover, .btn-outline-success:active  {
-    background-color: #35495e;
-    color: #8ed4b5;
-} */
-
 
 </style>
