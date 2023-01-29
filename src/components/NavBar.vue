@@ -49,8 +49,7 @@ export default defineComponent({
             cartItems,
             toggleCart,
             removeToken() {
-                console.log(deleteToken),
-                deleteToken,
+                deleteToken()
                 router.push({name: 'login'})
             }
         }
