@@ -5,11 +5,21 @@
       <h1>{{ product.title }}</h1>
       <hr>
     </div>
-    <div class="product-info">
-      <div class="img-product">
-        <img :src="product.images" alt="">
+    <div class="product-info"> 
+      <div class="img-product-active">
+        <img
+        :src="selectedImage" 
+        :alt="product.title">
       </div>
       <div class="product-description">{{ product.description }}</div>
+    </div>
+    <div class="selected-icon">        
+      <i class="bi bi-square-fill"
+      v-for="(image2, i) in product.images" 
+      :key="image2"
+      :class="{ selected: i === imageProduct }"
+      @click="showImage(i)">
+      </i>
     </div>
     <div class="product-add">
       <div class="product-price">
@@ -25,7 +35,7 @@
 
 <script lang="ts">
 import useProducts from '@/composable/useProducts'
-import { defineComponent } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import NavBar from '@/components/NavBar.vue'
 import { useCart } from '@/composable/useCart'
   
@@ -35,20 +45,38 @@ export default defineComponent({
   },
 
   props: {
+    images: {
+      type: Array,
+      required: true
+    },
     id: {
       type: Number,
       required: true
     },
-      userRole: String
+      // userRole: String
   },
+
   setup(props) {
     const { addProductToCart } = useCart()
     const { product, fetchProductById } = useProducts()
     fetchProductById(props.id)
 
+    const imageProduct = ref<number>(0)
+
+    const showImage = (i: number) => {
+      imageProduct.value = i
+    }
+
+    const selectedImage = computed(() => {
+      return product.value.images[imageProduct.value]
+    })
+
    return {
-      product, 
-      addProductToCart
+      imageProduct,
+      product,
+      selectedImage,
+      addProductToCart,
+      showImage
     }
   },
 })
@@ -83,12 +111,12 @@ export default defineComponent({
   align-items: center;
 }
 
-.img-product {
+.img-product-active {
   max-width: 50%;
   margin: 10px;
 }
 
-.img-product > img {
+.img-product-active > img {
   max-width: 100%;
 }
 
@@ -133,5 +161,17 @@ export default defineComponent({
   font-weight: 700;
 }
 
+
+.selected{
+  color: #8ed4b5;
+}
+
+.selected-icon {
+  width: 50%;
+}
+
+.bi-square-fill {
+  margin-left: 5px;
+}
 
 </style>
