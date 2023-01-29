@@ -98,6 +98,7 @@ export default defineComponent({
 
 .btn-submit {
     background-color: #8ed4b5;
+    font-weight: 600;
     border: none;
     color: #35495e;
     padding: 15px 25px 15px 25px;

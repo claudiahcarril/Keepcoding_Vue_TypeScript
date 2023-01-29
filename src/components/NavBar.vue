@@ -11,7 +11,11 @@
                 <router-link :to="{name: 'profile'}">Perfil</router-link>
             </li>
         </ul>
-        <button @click="toggleCart" class="btn btn-secondary btn-cart">Carrito</button>
+        <button @click="toggleCart" class="btn btn-secondary btn-cart">Carrito 
+            <div class="cart-number">
+                {{ cartItems.length }}
+            </div>
+        </button>
         <!-- <CustomButton> -->
         <CustomButton @click="removeToken">
             <template v-slot:left-icon>
@@ -38,16 +42,15 @@ export default defineComponent({
     },
 
     setup() {
-        const { toggleCart } = useCart()
+        const { cartItems, toggleCart } = useCart()
         const { deleteToken } = useLogin()
 
         return {
+            cartItems,
             toggleCart,
             removeToken() {
                 console.log(deleteToken),
-                console.log(localStorage.getItem('token')),
                 deleteToken,
-                console.log(localStorage.getItem('token'))
                 router.push({name: 'login'})
             }
         }
@@ -101,16 +104,28 @@ export default defineComponent({
     }
 
 .btn-cart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     background-color: #35495e;
     color: #8ed4b5;
     margin-right: 20px;
     height: 40px;
+    min-width: 110px;
 } 
 
 .btn-cart:hover {
     background-color: #8ed4b5;
     color: #35495e;
     border: #8ed4b5;
+}
+
+.cart-number {
+    background-color: #8ed4b5;
+    color: #35495e;
+    padding: 0 6px 0 6px;
+    margin-left: 7px;
+    border-radius: 50%;
 }
 
 .btn-outline-success > p {
