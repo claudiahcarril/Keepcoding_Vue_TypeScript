@@ -2,20 +2,16 @@
   <NavBar />
   <div class="profile">
     <div class="profile-title-section">
-      <h1 class="profile-title">Nombre de usuario</h1>
-      <h2>{{ user?.email }}</h2>
+      <h1 class="profile-title">Nombre de usuario: {{ user?.name }}</h1>
       <hr>
     </div>
-    <div class="row">
-      <div class="col-sm-10">
-        <input type="text" class="form-control-plaintext" id="staticEmail" placeholder="email@example.com">
+    <div class="profile-info-section">
+      <div class="profile-photo">
+        <img :src="user?.avatar" alt="user-foto">
+      </div>
+      <h2 class="user-info">Email: {{ user?.email }}</h2>
+      <h2 class="user-info">Rol: {{ user?.role }}</h2>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-10">
-      <input type="password" class="form-control-plaintext" id="inputPassword">
-    </div>
-  </div>
   </div>
 </template>
   
@@ -45,11 +41,15 @@
 
   <style>
 .profile {
+  display: flex;
+  flex-direction: column;
   border: 1px solid #8ed4b5;
   max-width: 600px;
   align-self: center;
   margin: 20px auto;
   margin-top: 100px;
+  margin-bottom: 100px;
+  padding-bottom: 50px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -62,12 +62,12 @@
 
 .profile-title {
   font-weight: 700;
-  text-align: start;
+  text-align: center;
   text-decoration: none;
   padding: 5px;
   color: #35495e;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 
@@ -77,13 +77,24 @@
   margin-top: 8px;
 }
 
-.col-form-label {
-  font-weight: 700;
+.profile-info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.row {
-  margin: 30px 20px 40px 20px;
+
+.profile-photo > img {
+  width: 80%;
 }
 
+.user-info {
+  padding: 10px 0 0 55px;
+  color: #35495e;
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 600;
+}
 
 </style>
